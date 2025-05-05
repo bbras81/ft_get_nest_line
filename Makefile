@@ -17,8 +17,6 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -g
 INCLUDE = -I.
 AR = ar rcs
-LIBFT = ./libft/libft.a
-LIBFTDIR = ./libft/
 
 SRCS = 
 
@@ -26,7 +24,7 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
+$(OBJS) %.o: %.c
 	$(COMPILER) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(NAME): $(OBJS) $(LIBFT)
