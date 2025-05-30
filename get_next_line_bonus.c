@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*fill_line(int fd, char *remainder)
 {
@@ -43,19 +43,19 @@ static char	*fill_line(int fd, char *remainder)
 
 char	*get_next_line(int fd)
 {
-	static char	*remainder;
+	static char	*remainder[MAX_FD];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	remainder = fill_line(fd, remainder);
-	line = extract_line(remainder);
+	remainder[fd] = fill_line(fd, remainder[fd]);
+	line = extract_line(remainder[fd]);
 	if (!line)
 	{
 		free(line);
-		remainder = NULL;
+		remainder[fd] = NULL;
 		return (NULL);
 	}
-	remainder = update_remainder(remainder);
+	remainder[fd] = update_remainder(remainder[fd]);
 	return (line);
 }
