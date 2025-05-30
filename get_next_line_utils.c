@@ -48,7 +48,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1)
 		s1 = "";
-	if ( !s2)
+	if (!s2)
 		return (NULL);
 	counter = 0;
 	counter_s2 = 0;
