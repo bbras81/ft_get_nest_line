@@ -21,7 +21,7 @@ int	main(void)
 	char	*line;
 
 	// int		chars_read;
-	fd = open("tester.txt", O_RDONLY);
+	fd = open("tester1.txt", O_RDONLY);
 	if (fd < 0)
 		return (0);
 	// Aqui a função open só retorna o FD
