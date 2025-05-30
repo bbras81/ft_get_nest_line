@@ -6,7 +6,7 @@
 /*   By: brunmigu <brunmigu@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 10:34:23 by brunmigu          #+#    #+#             */
-/*   Updated: 2025/05/27 13:05:11 by brunmigu         ###   ########.fr       */
+/*   Updated: 2025/05/30 14:13:56 by brunmigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ static char	*fill_line(int fd, char *remainder)
 			break ;
 		buffer[bytes_read] = '\0';
 		temp = ft_strjoin(remainder, buffer);
+		if (!temp)
+		{
+			free(remainder);
+			return (NULL);
+		}
 		free(remainder);
 		remainder = temp;
 	}

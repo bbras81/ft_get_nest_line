@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunmigu <brunmigu@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 12:45:40 by brunmigu          #+#    #+#             */
-/*   Updated: 2025/05/27 19:05:43 by brunmigu         ###   ########.fr       */
+/*   Created: 2025/05/30 14:11:46 by brunmigu          #+#    #+#             */
+/*   Updated: 2025/05/30 14:13:56 by brunmigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	counter;
 	size_t	counter_s2;
 
-	counter = 0;
-	counter_s2 = 0;
 	if (!s1)
 		s1 = "";
-	if (!s2)
+	if ( !s2)
 		return (NULL);
-	str_join = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	counter = 0;
+	counter_s2 = 0;
+	str_join = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!str_join)
 		return (NULL);
 	while (s1[counter])
@@ -65,7 +65,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str_join[counter + counter_s2] = s2[counter_s2];
 		counter_s2++;
 	}
-	str_join[counter + counter_s2] = 0;
+	str_join[counter + counter_s2] = '\0';
 	return (str_join);
 }
 
@@ -118,5 +118,6 @@ char	*update_remainder(char *remainder)
 	while (remainder[counter_1])
 		new_remainder[counter_2++] = remainder[counter_1++];
 	new_remainder[counter_2] = '\0';
+	free(remainder);
 	return (new_remainder);
 }
