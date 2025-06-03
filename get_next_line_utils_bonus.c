@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunmigu <brunmigu@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 14:11:46 by brunmigu          #+#    #+#             */
-/*   Updated: 2025/05/30 14:13:56 by brunmigu         ###   ########.fr       */
+/*   Created: 2025/06/03 10:58:28 by brunmigu          #+#    #+#             */
+/*   Updated: 2025/06/03 10:58:30 by brunmigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	found_new_line(char *remainder)
 {

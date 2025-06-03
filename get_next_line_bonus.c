@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunmigu <brunmigu@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 10:34:23 by brunmigu          #+#    #+#             */
-/*   Updated: 2025/05/30 14:13:56 by brunmigu         ###   ########.fr       */
+/*   Created: 2025/06/03 10:58:45 by brunmigu          #+#    #+#             */
+/*   Updated: 2025/06/03 10:58:51 by brunmigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,14 @@ static char	*fill_line(int fd, char *remainder)
 	while (found_new_line(remainder) == 0 && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read <= 0)
+		if (bytes_read < 0)
+			return (free(remainder), free(buffer), NULL);
+		if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
 		temp = ft_strjoin(remainder, buffer);
 		if (!temp)
-		{
-			free(remainder);
-			return (NULL);
-		}
+			return (free(remainder), NULL);
 		free(remainder);
 		remainder = temp;
 	}
