@@ -49,11 +49,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	remainder = fill_line(fd, remainder);
 	if (!remainder)
-		return (free(remainder), NULL);
+		return (NULL);
 	line = extract_line(remainder);
 	if (!line)
 	{
-		free(line);
+		free(remainder);
 		remainder = NULL;
 		return (NULL);
 	}

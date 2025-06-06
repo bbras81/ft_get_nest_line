@@ -45,13 +45,13 @@ char	*get_next_line(int fd)
 	static char	*remainder[MAX_FD];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE <= 0)
 		return (0);
 	remainder[fd] = fill_line(fd, remainder[fd]);
 	line = extract_line(remainder[fd]);
 	if (!line)
 	{
-		free(line);
+		free(remainder[fd]);
 		remainder[fd] = NULL;
 		return (NULL);
 	}
